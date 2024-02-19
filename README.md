@@ -2,7 +2,7 @@
 
 ## Description
 
-Modified version of the awesomely organized and simple enough to understand for a beginner ![TinyVim](https://github.com/NvChad/tinyvim.git) with some removals and additions.
+Modified version of the awesomely organized and simple enough to understand for a beginner ![TinyVim](https://github.com/NvChad/tinyvim.git) with some removals and additions. Based around the ![lazy.nvim](https://github.com/folke/lazy.nvim.git) plugin manager.
 
 ![nvim](nvim.png)
 

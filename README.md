@@ -14,6 +14,6 @@ Still not sure vulnerability- or securitywise how comfortable I would be running
 
 One of the nice things about this is how plugins can easily be added and removed by just commenting them out or pasted in from the plugin GitHub.
 
-A few which I don't use are included in a commented state in case I want them later on.
+A few which I don't use are included in a commented state for even easier access if the need arises.
 
-Thanks to all the developers putting the time and effort in to create this.
+Thanks also to ![The unsupervised learning podcast](https://danielmiessler.com/) for the Neovim inspiration, and mainlythanks to all the developers putting the time and effort in to create this.

@@ -16,4 +16,4 @@ One of the nice things about this is how plugins can easily be added and removed
 
 A few which I don't use are included in a commented state for even easier access if the need arises.
 
-Thanks also to ![The unsupervised learning podcast](https://danielmiessler.com/) for the Neovim inspiration, and mainlythanks to all the developers putting the time and effort in to create this.
+Thanks also to ![The unsupervised learning podcast](https://danielmiessler.com/) for the Neovim inspiration, and mainly thanks to all the developers putting the time and effort in to create this.

@@ -1,84 +1,6 @@
 local plugins = {
---  { lazy = true, "nvim-lua/plenary.nvim" },
 
---  {
---    'navarasu/onedark.nvim',
---    config = function()
---      require('onedark').setup {
-----        style = 'dark',
-----        style = 'darker',
---        style = 'cool',
-----        style = 'deep',
-----        style = 'warm',
-----        style = 'warmer',
---        transparent = true,
---      }
---    end,
---  },
-
-  {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  config = function()
-      require "plugins.configs.tokyonight"
-  end,
-
-  },
-
---  {
---    "EdenEast/nightfox.nvim",
---    priority = 1000,
---    config = function()
---      require("nightfox").setup {
---        options = { transparent = true },
---        groups = {
---          all = { VertSplit = { fg = "bg3" } },
---        },
---      }
---    end,
---  },
-
-  -- file tree
---    {
---      "nvim-tree/nvim-tree.lua",
---      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
---      config = function()
---        require("nvim-tree").setup()
---      end,
---    },
---
-  -- icons, for UI related plugins
---  {
---    "nvim-tree/nvim-web-devicons",
---    config = function()
---      require("nvim-web-devicons").setup()
---    end,
---  },
-
-  -- From nvim-tree Github:
-  {
-     "nvim-tree/nvim-tree.lua",
-     version = "*",
-     lazy = false,
-     dependencies = {
-       "nvim-tree/nvim-web-devicons",
-     },
-     config = function()
-       require("nvim-tree").setup {}
-     end,
-  },
-
-
-  -- syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require "plugins.configs.treesitter"
-    end,
-  },
+-- Navigation --------------------------------------------------------------------- {{{
 
   -- buffer + tab line
   {
@@ -89,23 +11,65 @@ local plugins = {
     end,
   },
 
-  -- statusline
 
+  -- Combination nvim-tree Github and TinyVim:
   {
-      'nvim-lualine/lualine.nvim',
-      config = function()
-        require("lualine").setup {
---          options = { theme = 'pablo' },
-        }
-      end,
+     "nvim-tree/nvim-tree.lua",
+     version = "*",
+     lazy = false,
+     dependencies = {
+       "nvim-tree/nvim-web-devicons",
+     },
+--     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+     config = function()
+       require("nvim-tree").setup {}
+     end,
   },
 
+  -- files finder etc
 --  {
---    "echasnovski/mini.statusline",
+--    "nvim-telescope/telescope.nvim",
+--    cmd = "Telescope",
 --    config = function()
---      require("mini.statusline").setup { set_vim_settings = false }
+--      require "plugins.configs.telescope"
 --    end,
 --  },
+
+-- }}}	
+
+-- Syntax highlighting, formatting, linting --------------------------------------- {{{
+
+  -- syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require "plugins.configs.treesitter"
+    end,
+  },
+
+  -- formatting , linting
+  {
+    "stevearc/conform.nvim",
+    lazy = true,
+    config = function()
+      require "plugins.configs.conform"
+    end,
+  },
+
+  -- indent lines
+--  {
+--    "lukas-reineke/indent-blankline.nvim",
+--    event = { "BufReadPre", "BufNewFile" },
+--    config = function()
+--      require("ibl").setup()
+--    end,
+--  },
+
+
+-- }}}	
+
+-- Language server protocol, snippets, autopairs ---------------------------------- {{{
 
   -- we use cmp plugin only when in insert mode
   -- so lets lazyload it at InsertEnter event, to know all the events check h-events
@@ -176,33 +140,12 @@ local plugins = {
     end,
   },
 
-  -- formatting , linting
-  {
-    "stevearc/conform.nvim",
-    lazy = true,
-    config = function()
-      require "plugins.configs.conform"
-    end,
-  },
+-- }}}	
 
-  -- indent lines
---  {
---    "lukas-reineke/indent-blankline.nvim",
---    event = { "BufReadPre", "BufNewFile" },
---    config = function()
---      require("ibl").setup()
---    end,
---  },
---
-  -- files finder etc
---  {
---    "nvim-telescope/telescope.nvim",
---    cmd = "Telescope",
---    config = function()
---      require "plugins.configs.telescope"
---    end,
---  },
---
+-- Various unused ----------------------------------------------------------------- {{{
+
+--  { lazy = true, "nvim-lua/plenary.nvim" },
+
   -- git status on signcolumn etc
 --  {
 --    "lewis6991/gitsigns.nvim",
@@ -220,6 +163,85 @@ local plugins = {
 --      require("Comment").setup()
 --    end,
 --  },
+
+
+-- }}}	
+
+-- Themes ------------------------------------------------------------------------- {{{
+
+  {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  config = function()
+      require "plugins.configs.tokyonight"
+  end,
+  },
+
+--  {
+--    'navarasu/onedark.nvim',
+--    config = function()
+--      require('onedark').setup {
+----        style = 'dark',
+----        style = 'darker',
+--        style = 'cool',
+----        style = 'deep',
+----        style = 'warm',
+----        style = 'warmer',
+--        transparent = true,
+--      }
+--    end,
+--  },
+
+--  {
+--    "EdenEast/nightfox.nvim",
+--    priority = 1000,
+--    config = function()
+--      require("nightfox").setup {
+--        options = { transparent = true },
+--        groups = {
+--          all = { VertSplit = { fg = "bg3" } },
+--        },
+--      }
+--    end,
+--  },
+
+  -- file tree
+--    {
+--      "nvim-tree/nvim-tree.lua",
+--      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+--      config = function()
+--        require("nvim-tree").setup()
+--      end,
+--    },
+--
+  -- icons, for UI related plugins
+--  {
+--    "nvim-tree/nvim-web-devicons",
+--    config = function()
+--      require("nvim-web-devicons").setup()
+--    end,
+--  },
+
+  {
+      'nvim-lualine/lualine.nvim',
+      config = function()
+        require("lualine").setup {
+--          options = { theme = 'pablo' },
+        }
+      end,
+  },
+
+--  {
+--    "echasnovski/mini.statusline",
+--    config = function()
+--      require("mini.statusline").setup { set_vim_settings = false }
+--    end,
+--  },
+
+-- }}}	
+
 }
 
 require("lazy").setup(plugins, require "plugins.configs.lazy")

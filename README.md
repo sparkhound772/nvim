@@ -10,7 +10,7 @@ While there are setups to install Neovim configs with just a couple of commands 
 
 Though progressively it has lead to 20 or so plugins for the setup to be where I want it to be - and still it's not even everything included in TinyVim, and supposedly even less than the likes of it's older sibling ![NvChad](https://github.com/NvChad/NvChad.git), or ![LazyVim](https://github.com/LazyVim/LazyVim.git).
 
-One of the nice things about this setup is how plugins can easily be added and removed by just commenting them out or pasted in from the plugin GitHub, and the Lazy plugin manager will do the installation automatically.
+In any case plugins can easily be added and removed by just commenting them out or pasting them in from the plugin's GitHub, and the Lazy plugin manager will do the installation automatically.
 
 A few which I don't use are included in a commented state for even easier access if the need arises.
 

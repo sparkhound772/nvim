@@ -207,15 +207,7 @@ local plugins = {
 --    end,
 --  },
 
-  -- file tree
---    {
---      "nvim-tree/nvim-tree.lua",
---      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
---      config = function()
---        require("nvim-tree").setup()
---      end,
---    },
---
+    -- Installed with nvim-tree, but if needed separately.
   -- icons, for UI related plugins
 --  {
 --    "nvim-tree/nvim-web-devicons",

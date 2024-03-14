@@ -46,15 +46,6 @@ local plugins = {
 --      require "plugins.configs.conform"
 --    end,
 --  },
---
-  -- indent lines
---  {
---    "lukas-reineke/indent-blankline.nvim",
---    event = { "BufReadPre", "BufNewFile" },
---    config = function()
---      require("ibl").setup()
---    end,
---  },
 
 -- }}}	
 
@@ -131,7 +122,16 @@ local plugins = {
 
 -- }}}	
 
--- Various unused ----------------------------------------------------------------- {{{
+-- Various (so far) unused -------------------------------------------------------- {{{
+
+  -- indent lines
+--  {
+--    "lukas-reineke/indent-blankline.nvim",
+--    event = { "BufReadPre", "BufNewFile" },
+--    config = function()
+--      require("ibl").setup()
+--    end,
+--  },
 
   -- files finder etc
 --  {
@@ -164,7 +164,7 @@ local plugins = {
 
 -- }}}	
 
--- Themes ------------------------------------------------------------------------- {{{
+-- Theming ------------------------------------------------------------------------- {{{
 
   {
   "folke/tokyonight.nvim",
@@ -174,6 +174,15 @@ local plugins = {
   config = function()
       require "plugins.configs.tokyonight"
   end,
+  },
+
+  {
+      'nvim-lualine/lualine.nvim',
+      config = function()
+        require("lualine").setup {
+--          options = { theme = 'pablo' },
+        }
+      end,
   },
 
 --  {
@@ -210,22 +219,6 @@ local plugins = {
 --    "nvim-tree/nvim-web-devicons",
 --    config = function()
 --      require("nvim-web-devicons").setup()
---    end,
---  },
-
-  {
-      'nvim-lualine/lualine.nvim',
-      config = function()
-        require("lualine").setup {
---          options = { theme = 'pablo' },
-        }
-      end,
-  },
-
---  {
---    "echasnovski/mini.statusline",
---    config = function()
---      require("mini.statusline").setup { set_vim_settings = false }
 --    end,
 --  },
 

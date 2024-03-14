@@ -78,9 +78,8 @@ end
 
 
 
-
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+-- "Enable some language servers with the additional completion capabilities offered by nvim-cmp"
+-- Not sure where this is from, and whether it should be applied also to other language servers.
 require('lspconfig')['pyright'].setup {
     -- on_attach = my_custom_on_attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(),

@@ -76,8 +76,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-
-
 -- "Enable some language servers with the additional completion capabilities offered by nvim-cmp"
 -- Not sure where this is from, and whether it should be applied also to other language servers.
 require('lspconfig')['pyright'].setup {

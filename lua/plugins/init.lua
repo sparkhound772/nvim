@@ -11,8 +11,7 @@ local plugins = {
     end,
   },
 
-
-  -- Combination nvim-tree Github and TinyVim:
+  -- Combination of nvim-tree Github and TinyVim:
   {
      "nvim-tree/nvim-tree.lua",
      version = "*",
@@ -26,37 +25,28 @@ local plugins = {
      end,
   },
 
-  -- files finder etc
---  {
---    "nvim-telescope/telescope.nvim",
---    cmd = "Telescope",
---    config = function()
---      require "plugins.configs.telescope"
---    end,
---  },
-
 -- }}}	
 
 -- Syntax highlighting, formatting, linting --------------------------------------- {{{
 
   -- syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require "plugins.configs.treesitter"
-    end,
-  },
+--  {
+--    "nvim-treesitter/nvim-treesitter",
+--    build = ":TSUpdate",
+--    config = function()
+--      require "plugins.configs.treesitter"
+--    end,
+--  },
 
   -- formatting , linting
-  {
-    "stevearc/conform.nvim",
-    lazy = true,
-    config = function()
-      require "plugins.configs.conform"
-    end,
-  },
-
+--  {
+--    "stevearc/conform.nvim",
+--    lazy = true,
+--    config = function()
+--      require "plugins.configs.conform"
+--    end,
+--  },
+--
   -- indent lines
 --  {
 --    "lukas-reineke/indent-blankline.nvim",
@@ -66,7 +56,6 @@ local plugins = {
 --    end,
 --  },
 
-
 -- }}}	
 
 -- Language server protocol, snippets, autopairs ---------------------------------- {{{
@@ -74,75 +63,84 @@ local plugins = {
   -- we use cmp plugin only when in insert mode
   -- so lets lazyload it at InsertEnter event, to know all the events check h-events
   -- completion , now all of these plugins are dependent on cmp, we load them after cmp
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      -- cmp sources
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lsp",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lua",
-
-      -- snippets
-      --list of default snippets
-      "rafamadriz/friendly-snippets",
-
-      -- snippets engine
-      {
-        "L3MON4D3/LuaSnip",
-        config = function()
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-      },
-
-      -- autopairs , autocompletes ()[] etc
-      {
-        "windwp/nvim-autopairs",
-        config = function()
-          require("nvim-autopairs").setup()
-
-          --  cmp integration
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          local cmp = require "cmp"
-          cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-      },
-    },
-    config = function()
-      require "plugins.configs.cmp"
-    end,
-  },
-
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    cmd = { "Mason", "MasonInstall" },
-    config = function()
-      require("mason").setup()
-    end,
-  },
-
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup()
-    end,
-  },
-
-  -- lsp
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require "plugins.configs.lspconfig"
-    end,
-  },
+--  {
+--    "hrsh7th/nvim-cmp",
+--    event = "InsertEnter",
+--    dependencies = {
+--      -- cmp sources
+--      "hrsh7th/cmp-buffer",
+--      "hrsh7th/cmp-path",
+--      "hrsh7th/cmp-nvim-lsp",
+--      "saadparwaiz1/cmp_luasnip",
+--      "hrsh7th/cmp-nvim-lua",
+--
+--      -- snippets
+--      --list of default snippets
+--      "rafamadriz/friendly-snippets",
+--
+--      -- snippets engine
+--      {
+--        "L3MON4D3/LuaSnip",
+--        config = function()
+--          require("luasnip.loaders.from_vscode").lazy_load()
+--        end,
+--      },
+--
+--      -- autopairs , autocompletes ()[] etc
+--      {
+--        "windwp/nvim-autopairs",
+--        config = function()
+--          require("nvim-autopairs").setup()
+--
+--          --  cmp integration
+--          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+--          local cmp = require "cmp"
+--          cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+--        end,
+--      },
+--    },
+--    config = function()
+--      require "plugins.configs.cmp"
+--    end,
+--  },
+--
+--  {
+--    "williamboman/mason.nvim",
+--    build = ":MasonUpdate",
+--    cmd = { "Mason", "MasonInstall" },
+--    config = function()
+--      require("mason").setup()
+--    end,
+--  },
+--
+--  {
+--    "williamboman/mason-lspconfig.nvim",
+--    config = function()
+--      require("mason-lspconfig").setup()
+--    end,
+--  },
+--
+--  -- lsp
+--  {
+--    "neovim/nvim-lspconfig",
+--    event = { "BufReadPre", "BufNewFile" },
+--    config = function()
+--      require "plugins.configs.lspconfig"
+--    end,
+--  },
 
 -- }}}	
 
 -- Various unused ----------------------------------------------------------------- {{{
+
+  -- files finder etc
+--  {
+--    "nvim-telescope/telescope.nvim",
+--    cmd = "Telescope",
+--    config = function()
+--      require "plugins.configs.telescope"
+--    end,
+--  },
 
 --  { lazy = true, "nvim-lua/plenary.nvim" },
 
@@ -163,7 +161,6 @@ local plugins = {
 --      require("Comment").setup()
 --    end,
 --  },
-
 
 -- }}}	
 

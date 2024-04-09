@@ -97,6 +97,15 @@ local plugins = {
 --
 --  {
 --    "williamboman/mason.nvim",
+--    opts = {
+--      ensure_installed = {
+--        "lua-language-server",
+--        "typescript-language-server",
+--        "intelephense",
+--        "html-lsp",
+--        "pyright",
+--      },
+--    },
 --    build = ":MasonUpdate",
 --    cmd = { "Mason", "MasonInstall" },
 --    config = function()
